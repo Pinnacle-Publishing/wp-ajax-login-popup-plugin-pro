@@ -124,6 +124,7 @@ $use_SVG_icons: true;
         .lrm-switch-to--login:before {
             background: url(./img/login.png) no-repeat center center;
             background-size: 100%;
+            display: none;
         }
 
         .lrm-switch-to--register:before {

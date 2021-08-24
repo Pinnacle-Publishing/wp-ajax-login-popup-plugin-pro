@@ -15,7 +15,6 @@ defined( 'ABSPATH' ) || exit;
 /** @var bool $is_inline */
 /** @var string $role */
 /** @var bool $role_silent */
-/** @var string $redirect_to */
 
 /** @var string $default_tab "login"/"register"/"lost-password" */
 $fields_required = ('both' === lrm_setting('advanced/validation/type')) ? 'required' : '';
@@ -53,3 +52,17 @@ $users_can_register = apply_filters('lrm/users_can_register', get_option("users_
     </div> <!-- lrm-user-modal-container -->
 
 </div> <!-- lrm-user-modal -->
+
+<script>
+    jQuery(document).on("lrm/before_display/forgot_password", function() {
+        jQuery(
+            "a.lrm-switch-to-link.lrm-switch-to--login.lrm-ficon-login.selected"
+        ).html("Forgot password?");
+    });
+
+    jQuery(document).on("lrm/before_display/login", function() {
+        jQuery(
+            "a.lrm-switch-to-link.lrm-switch-to--login.lrm-ficon-login.selected"
+        ).html("Sign In to Member Area");
+    });
+</script>

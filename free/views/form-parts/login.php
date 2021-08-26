@@ -1,10 +1,9 @@
-<div class="lrm-signin-section <?php echo !$users_can_register || $is_inline && $default_tab == 'login' ? 'is-selected' : ''; ?>">
-    <!-- log in form -->
-    <form class="lrm-form js-lrm-form" action="#0" data-action="login">
+<div class="lrm-signin-section <?php echo !$users_can_register || $is_inline && $default_tab == 'login' ? 'is-selected' : ''; ?>"> <!-- log in form -->
+	<form class="lrm-form js-lrm-form" action="#0" data-action="login">
         <div class="lrm-fieldset-wrap">
 
             <div class="lrm-integrations lrm-integrations--login">
-                <?php do_action('lrm/login_form/before'); ?>
+                <?php do_action( 'lrm/login_form/before' ); ?>
             </div>
 
             <p class="lrm-form-message lrm-form-message--init"></p>
@@ -48,33 +47,32 @@
             </div>
 
             <div class="lrm-integrations lrm-integrations--login lrm-integrations-before-btn">
-                <?php do_action('lrm_login_form'); // Deprecated 
-                ?>
-                <?php do_action('lrm/login_form'); ?>
+                <?php do_action( 'lrm_login_form' ); // Deprecated ?>
+                <?php do_action( 'lrm/login_form' ); ?>
             </div>
 
             <div class="lrm-integrations-otp"></div>
+            
             <p class="lrm-form-bottom-message"><a href="#0" class="lrm-switch-to--reset-password"><?php echo lrm_setting('messages/login/forgot-password', true); ?></a></p>
+
         </div>
-    </form>
 
-    <div class="lrm-fieldset-wrap">
-        <div class="lrm-integrations lrm-integrations--login">
-            <?php do_action('lrm/login_form/after'); ?>
+        <div class="lrm-fieldset-wrap">
+            <div class="lrm-integrations lrm-integrations--login">
+                <?php do_action( 'lrm/login_form/after' ); ?>
+            </div>
         </div>
-    </div>
 
-    <input type="hidden" name="redirect_to" value="<?= $redirect_to; ?>">
-    <input type="hidden" name="lrm_action" value="login">
-    <input type="hidden" name="wp-submit" value="1">
-    <!-- Fix for Eduma WP theme-->
-    <input type="hidden" name="lp-ajax" value="login">
+		<input type="hidden" name="redirect_to" value="<?= $redirect_to; ?>">
+		<input type="hidden" name="lrm_action" value="login">
+		<input type="hidden" name="wp-submit" value="1">
+		<!-- Fix for Eduma WP theme-->
+		<input type="hidden" name="lp-ajax" value="login">
 
-    <?php wp_nonce_field('ajax-login-nonce', 'security-login'); ?>
+		<?php wp_nonce_field( 'ajax-login-nonce', 'security-login' ); ?>
 
-    <!-- For Invisible Recaptcha plugin -->
-    <span class="wpcf7-submit" style="display: none;"></span>
-    </form>
-
-    <!-- <a href="#0" class="lrm-close-form">Close</a> -->
+		<!-- For Invisible Recaptcha plugin -->
+		<span class="wpcf7-submit" style="display: none;"></span>
+	</form>
+	<!-- <a href="#0" class="lrm-close-form">Close</a> -->
 </div> <!-- lrm-login -->
